@@ -1,0 +1,23 @@
+---
+---
+
+/* prettier-ignore */
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
+
+/* append your custom style below */
+
+/* 섹션 구분선(hr)을 더 또렷하게 */
+hr {
+  border: 0;
+  border-top: 1px solid #c4c9d2;
+  opacity: 1;
+  margin: 2rem 0;
+}
+
+html[data-mode='dark'] hr {
+  border-top-color: #4a505b;
+}
