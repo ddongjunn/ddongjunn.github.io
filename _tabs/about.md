@@ -6,9 +6,9 @@ order: 4
 
 ## Backend Engineer
 
-**백엔드 5년차**로, Java/Spring Boot 기반 **Ceph 분산 스토리지 플랫폼을 개발·운영**하고 있습니다. 장애 상황에서도 예측 가능하게 동작하는 서버 구조를 중요하게 생각하며, 외부 시스템 연동·동시성 충돌·장애 전파 문제를 경험하며 기능이 정상 동작하는 것뿐 아니라 실패했을 때 시스템이 어떻게 반응해야 하는지도 함께 고민해왔습니다. 트랜잭션 정합성, 책임 레이어 분리, 장애 격리처럼 운영 환경에서 드러나는 문제를 구조 관점에서 해결하는 데 관심이 많습니다.
+백엔드 5년차로, Java/Spring Boot 기반 Ceph 분산 스토리지 플랫폼을 개발·운영하고 있습니다. 장애 상황에서도 예측 가능하게 동작하는 서버 구조를 중요하게 생각하며, 외부 시스템 연동·동시성 충돌·장애 전파 문제를 경험하며 기능이 정상 동작하는 것뿐 아니라 실패했을 때 시스템이 어떻게 반응해야 하는지도 함께 고민해왔습니다. 트랜잭션 정합성, 책임 레이어 분리, 장애 격리처럼 운영 환경에서 드러나는 문제를 구조 관점에서 해결하는 데 관심이 많습니다.
 
-<i class="fa-solid fa-envelope"></i> [ddongjunn@gmail.com](mailto:ddongjunn@gmail.com) &nbsp;·&nbsp; <i class="fa-brands fa-github"></i> [github.com/ddongjunn](https://github.com/ddongjunn) &nbsp;·&nbsp; <i class="fa-solid fa-pen-nib"></i> [jhost.tistory.com](https://jhost.tistory.com)
+<i class="fa-solid fa-envelope"></i> [ddongjunn@gmail.com](mailto:ddongjunn@gmail.com) &nbsp;·&nbsp; <i class="fa-brands fa-github"></i> [github.com/ddongjunn](https://github.com/ddongjunn) &nbsp;·&nbsp; <i class="fa-solid fa-rss"></i> [jhost.tistory.com](https://jhost.tistory.com)
 
 ---
 

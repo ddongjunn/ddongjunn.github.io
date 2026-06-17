@@ -153,8 +153,8 @@ _개선 구조 — Backend는 VIP만 호출하고, 실패 처리는 Resilience4j
 
 HAProxy와 Resilience4j를 통해 Ceph 장애가 Backend 요청 흐름에 직접 전파되지 않도록 구조를 개선했습니다. 하지만 운영 관점에서는 여전히 중요한 문제가 남아 있었습니다. 장애를 차단하더라도, 어떤 Provider에서 어떤 이유로 장애가 발생하고 있는지 빠르게 감지할 수 있어야 했습니다.
 
-![모니터링 아키텍처](/assets/img/ceph-monitoring-arch.png)
-_모니터링 파이프라인 — Backend에서 노출한 커스텀 메트릭을 Prometheus가 수집하고, Alertmanager와 Slack을 통해 Provider별 장애 상태를 알림으로 전달합니다._
+![전체 아키텍처](/assets/img/ceph-architecture.png)
+_전체 아키텍처 — HAProxy + Keepalived(VIP) 단일 진입점부터 Prometheus·Alertmanager·Slack 기반 관찰 가능성 파이프라인까지._
 
 CPU, 메모리, 헬스체크 같은 기본 지표만으로는 특정 Provider의 CircuitBreaker가 OPEN 상태로 유지되거나, 특정 클러스터 호출 실패율이 증가하는 상황을 충분히 감지하기 어려웠습니다. 서버 자체는 정상 동작하더라도, 서비스 관점에서는 이미 특정 클러스터 요청이 실패하고 있을 수 있기 때문입니다.
 
