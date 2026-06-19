@@ -230,7 +230,8 @@ _코비젼 · 2022.06 ~ 2022.08 · Java, Spring, MyBatis, MySQL_
 
 ## Open Source
 
-- **Spring Boot 오픈소스 기여** · PR [#48347](https://github.com/spring-projects/spring-boot/pull/48347) (4.1.0-M1 반영). `MustacheResourceTemplateLoader` 템플릿 인코딩 처리 개선 및 public API 호환성 보완 후 머지.
+- **Spring Boot 오픈소스 기여** · PR [#48347](https://github.com/spring-projects/spring-boot/pull/48347) (4.1.0-M1 반영)<br>
+`MustacheResourceTemplateLoader` 템플릿 인코딩 처리 개선 및 public API 호환성 보완 후 머지
 
 ## Education
 
