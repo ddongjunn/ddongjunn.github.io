@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'ko-KR' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index,follow">
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <style>
+      :root {
+        --resume-ink: #171717;
+        --resume-muted: #5c5f66;
+        --resume-soft: #8a8f98;
+        --resume-line: #d8dbe2;
+        --resume-accent: #1f4f7a;
+        --resume-paper: #ffffff;
+        --resume-bg: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        background: var(--resume-bg);
+        color: var(--resume-ink);
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR",
+          "Segoe UI", sans-serif;
+        font-size: 16px;
+        line-height: 1.68;
+        letter-spacing: 0;
+      }
+
+      body {
+        margin: 0;
+        background: var(--resume-bg);
+      }
+
+      a {
+        color: inherit;
+        text-decoration-color: #9ba6b3;
+        text-underline-offset: 2px;
+      }
+
+      .resume-document {
+        width: min(100%, 920px);
+        margin: 0 auto;
+        padding: 56px 32px 72px;
+        background: var(--resume-paper);
+      }
+
+      .resume-header {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 118px;
+        gap: 28px;
+        align-items: start;
+        padding-bottom: 20px;
+        border-bottom: 2px solid var(--resume-ink);
+      }
+
+      .resume-role {
+        margin: 0 0 4px;
+        color: var(--resume-accent);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 42px;
+        line-height: 1.08;
+        letter-spacing: 0;
+      }
+
+      .resume-headline {
+        max-width: 600px;
+        margin: 12px 0 0;
+        color: #2f3339;
+        font-size: 17px;
+        font-weight: 650;
+        line-height: 1.58;
+      }
+
+      .resume-photo {
+        width: 118px;
+        height: 118px;
+        object-fit: cover;
+        object-position: center 34%;
+        border-radius: 10px;
+        border: 1px solid #d6dbe3;
+        background: #f4f6f8;
+      }
+
+      .contact-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px 12px;
+        padding: 0;
+        margin: 14px 0 0;
+        color: #333840;
+        font-size: 14px;
+        list-style: none;
+      }
+
+      .contact-list li {
+        display: inline-flex;
+        align-items: center;
+        white-space: nowrap;
+      }
+
+      .contact-list li:not(:last-child)::after {
+        content: "|";
+        margin-left: 12px;
+        color: #a0a6af;
+      }
+
+      section {
+        margin-top: 26px;
+        padding-top: 22px;
+        border-top: 1px solid var(--resume-line);
+      }
+
+      .resume-header + section {
+        border-top: 0;
+        padding-top: 0;
+      }
+
+      .resume-content > h2 {
+        margin-top: 26px;
+        padding-top: 22px;
+        border-top: 1px solid var(--resume-line);
+      }
+
+      .resume-content > h2:first-child {
+        margin-top: 22px;
+        padding-top: 0;
+        border-top: 0;
+      }
+
+      h2 {
+        margin: 0 0 12px;
+        font-size: 25px;
+        line-height: 1.25;
+        letter-spacing: 0;
+      }
+
+      h3 {
+        margin: 0;
+        font-size: 19px;
+        line-height: 1.35;
+        letter-spacing: 0;
+      }
+
+      .resume-content h3 {
+        margin-top: 22px;
+      }
+
+      .resume-content h2 + h3 {
+        margin-top: 0;
+      }
+
+      .resume-content h3.project-title {
+        margin-top: 30px;
+        padding-top: 22px;
+        border-top: 1px solid var(--resume-line);
+      }
+
+      .resume-content h2 + h3.project-title {
+        margin-top: 0;
+        padding-top: 0;
+        border-top: 0;
+      }
+
+      h4 {
+        margin: 12px 0 5px;
+        font-size: 15px;
+        line-height: 1.35;
+      }
+
+      p {
+        margin: 0 0 9px;
+      }
+
+      .resume-content p > em:only-child {
+        font-style: normal;
+        color: var(--resume-muted);
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      ul {
+        margin: 7px 0 0;
+        padding-left: 18px;
+      }
+
+      li + li {
+        margin-top: 4px;
+      }
+
+      .summary {
+        color: #24282f;
+        font-size: 16px;
+      }
+
+      .keyword-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        margin-top: 12px;
+      }
+
+      .keyword-row span {
+        padding: 4px 8px;
+        border: 1px solid #d7dce5;
+        border-radius: 999px;
+        color: #30353d;
+        font-size: 12px;
+        font-weight: 650;
+        line-height: 1.25;
+        background: #fafbfc;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px 22px;
+      }
+
+      .skill-block h3 {
+        margin-bottom: 5px;
+        color: var(--resume-accent);
+        font-size: 14px;
+        text-transform: uppercase;
+      }
+
+      .skill-block p {
+        color: #30353d;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .item {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .item + .item {
+        margin-top: 18px;
+      }
+
+      .item-head {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 12px;
+        align-items: baseline;
+      }
+
+      .period {
+        color: var(--resume-muted);
+        font-size: 13px;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+
+      .meta {
+        margin-top: 2px;
+        color: var(--resume-muted);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .project {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        padding-top: 17px;
+        border-top: 1px solid #e1e4ea;
+      }
+
+      .project:first-of-type {
+        padding-top: 0;
+        border-top: 0;
+      }
+
+      .project + .project {
+        margin-top: 18px;
+      }
+
+      .project .meta {
+        margin-bottom: 8px;
+      }
+
+      .project-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .project-grid > div {
+        min-width: 0;
+      }
+
+      .project-media {
+        margin: 12px 0 14px;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .project-media img {
+        display: block;
+        width: 100%;
+        max-height: 230px;
+        object-fit: contain;
+        border: 1px solid #d8dde6;
+        border-radius: 6px;
+        background: #fff;
+      }
+
+      .project-media figcaption {
+        margin-top: 5px;
+        color: var(--resume-muted);
+        font-size: 12px;
+        line-height: 1.45;
+      }
+
+      .resume-content p > img {
+        display: block;
+        width: 100%;
+        max-height: 260px;
+        object-fit: contain;
+        margin: 12px 0 4px;
+        border: 1px solid #d8dde6;
+        border-radius: 6px;
+        background: #fff;
+      }
+
+      .resume-content p:has(> img) + p em {
+        display: block;
+        margin-top: 0;
+        color: var(--resume-muted);
+        font-size: 12px;
+        font-weight: 400;
+        font-style: italic;
+        line-height: 1.45;
+      }
+
+      .resume-content table {
+        width: 100%;
+        margin: 8px 0 0;
+        border-collapse: collapse;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .resume-content th {
+        color: var(--resume-accent);
+        font-size: 13px;
+        text-align: left;
+        text-transform: uppercase;
+      }
+
+      .resume-content th,
+      .resume-content td {
+        padding: 7px 10px 7px 0;
+        vertical-align: top;
+        border-bottom: 1px solid #edf0f4;
+      }
+
+      .project strong,
+      .item strong,
+      .summary strong {
+        font-weight: 800;
+      }
+
+      .resume-content code {
+        padding: 1px 5px;
+        font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+        font-size: 0.86em;
+        color: #1f4f7a;
+        background: #f1f4f8;
+        border: 1px solid #dfe5ec;
+        border-radius: 4px;
+      }
+
+      .links {
+        margin-top: 7px;
+        color: var(--resume-muted);
+        font-size: 13px;
+        font-weight: 650;
+      }
+
+      .compact-list {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 6px;
+        margin: 0;
+        padding-left: 18px;
+      }
+
+      .page-break {
+        break-before: auto;
+        page-break-before: auto;
+      }
+
+      @media (max-width: 760px) {
+        html,
+        body {
+          background: #fff;
+        }
+
+        .resume-document {
+          width: 100%;
+          min-height: auto;
+          margin: 0;
+          padding: 22px;
+          box-shadow: none;
+        }
+
+        .resume-header {
+          grid-template-columns: 1fr;
+        }
+
+        .resume-photo {
+          width: 96px;
+          height: 96px;
+          order: -1;
+        }
+
+        h1 {
+          font-size: 34px;
+        }
+
+        .skills-grid,
+        .project-grid,
+        .compact-list {
+          grid-template-columns: 1fr;
+        }
+
+        .item-head {
+          grid-template-columns: 1fr;
+          gap: 0;
+        }
+
+        .period {
+          white-space: normal;
+        }
+      }
+
+      @media print {
+        html,
+        body {
+          background: #fff;
+          font-size: 13.4px;
+          line-height: 1.54;
+        }
+
+        .resume-document {
+          width: auto;
+          min-height: auto;
+          margin: 0;
+          padding: 0;
+          box-shadow: none;
+        }
+
+        .resume-header {
+          grid-template-columns: minmax(0, 1fr) 96px;
+          gap: 18px;
+          padding-bottom: 12px;
+        }
+
+        h1 {
+          font-size: 32px;
+        }
+
+        h2 {
+          margin-bottom: 8px;
+          font-size: 19px;
+        }
+
+        .resume-content > h2 {
+          margin-top: 16px;
+          padding-top: 13px;
+        }
+
+        .resume-content h3.project-title {
+          margin-top: 18px;
+          padding-top: 13px;
+        }
+
+        h3 {
+          font-size: 15px;
+        }
+
+        h4 {
+          font-size: 12px;
+        }
+
+        section {
+          margin-top: 14px;
+          padding-top: 12px;
+        }
+
+        .resume-headline {
+          margin-top: 8px;
+          font-size: 12.8px;
+          line-height: 1.45;
+        }
+
+        .resume-photo {
+          width: 96px;
+          height: 96px;
+          border-radius: 8px;
+        }
+
+        .contact-list,
+        .meta,
+        .period,
+        .links,
+        .skill-block p {
+          font-size: 11.6px;
+        }
+
+        .keyword-row span {
+          font-size: 10.5px;
+        }
+
+        .project + .project,
+        .item + .item {
+          margin-top: 12px;
+        }
+
+        .project {
+          padding-top: 12px;
+        }
+
+        .resume-content p > img {
+          max-height: 210px;
+        }
+
+        .resume-content table {
+          font-size: 11.8px;
+        }
+
+        .resume-content th {
+          font-size: 11.4px;
+        }
+
+        a {
+          text-decoration: none;
+        }
+
+        * {
+          print-color-adjust: exact;
+          -webkit-print-color-adjust: exact;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="resume-document" aria-label="{{ page.name | default: site.title }} resume">
+      <header class="resume-header">
+        <div>
+          <p class="resume-role">{{ page.role | default: 'Backend Engineer' }}</p>
+          <h1>{{ page.name | default: site.title }}</h1>
+          {% if page.headline %}
+            <p class="resume-headline">{{ page.headline }}</p>
+          {% endif %}
+          {% if page.contacts %}
+            <ul class="contact-list">
+              {% for contact in page.contacts %}
+                <li>
+                  {% if contact.icon %}<span aria-hidden="true">{{ contact.icon }}</span>&nbsp;{% endif %}
+                  <a href="{{ contact.url }}">{{ contact.label }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+        {% if page.photo %}
+          <img class="resume-photo" src="{{ page.photo }}" alt="{{ page.name | default: site.title }} profile photo">
+        {% endif %}
+      </header>
+      <div class="resume-content">
+        {{ content }}
+      </div>
+    </main>
+  </body>
+</html>
