@@ -14,9 +14,9 @@ timezone: Asia/Seoul
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: djlee # the main title
+title: ddongjunn # the main title
 
-tagline: 문제를 구조로 해결하는 백엔드 개발자 # it will display as the subtitle
+tagline: 기록이 쌓여 깊이가 된다 # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
   장애 격리·트랜잭션 정합성·책임 분리 설계를 다루는 백엔드 개발자 djlee의 기술 블로그.
