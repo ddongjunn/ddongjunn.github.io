@@ -15,8 +15,8 @@ contacts:
     label: github.com/ddongjunn
     url: https://github.com/ddongjunn
   - icon: "📝"
-    label: ddongjunn.github.io
-    url: https://ddongjunn.github.io
+    label: jhost.tistory.com
+    url: https://jhost.tistory.com/
 ---
 
 ## Summary
