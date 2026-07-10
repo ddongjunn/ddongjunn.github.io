@@ -137,7 +137,7 @@ assets:
     env: # [development | production]
 
 pwa:
-  enabled: true # The option for PWA feature (installable)
+  enabled: false # Disabled to keep deployed assets in sync with the latest site build.
   cache:
     enabled: false # Avoid stale theme assets after a deployment.
     # Paths defined here will be excluded from the PWA cache.
