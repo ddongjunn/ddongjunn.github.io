@@ -1,7 +1,7 @@
 ---
 title: "주문 트래픽 폭주를 Redis 대기열로 제어한 과정"
 description: "주문 API의 안전 입장 속도를 부하 테스트로 측정하고, Redis 대기열의 batch-size를 결정한 과정."
-date: 2026-07-10 18:00:00 +0900
+date: 2026-07-10 17:00:00 +0900
 categories: [Project, Architecture]
 tags: [redis, queue, rate-limiting, load-testing, backpressure, spring-boot]
 toc: true
