@@ -112,15 +112,6 @@
 
   <!-- Scripts -->
 
-  <!-- [custom] 저장된 모드 선택이 없으면 기본을 light로 (OS가 dark여도 light로 시작) -->
-  <!-- Chirpy 7.5는 sessionStorage 키 'mode'를 사용 -->
-  <script>
-    if (!sessionStorage.getItem('mode')) {
-      sessionStorage.setItem('mode', 'light');
-      document.documentElement.setAttribute('data-mode', 'light');
-    }
-  </script>
-
   <script src="{{ '/assets/js/dist/theme.min.js' | relative_url }}"></script>
 
   {% include js-selector.html lang=lang %}
