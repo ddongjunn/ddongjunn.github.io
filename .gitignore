@@ -32,3 +32,6 @@ _workspace
 
 # Private, job-specific resumes (never pushed — local build/PDF only)
 /resume/
+
+# Private, job-specific portfolios (never pushed — local build/PDF only)
+/portfolio/
