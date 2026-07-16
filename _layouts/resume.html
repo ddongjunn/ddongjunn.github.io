@@ -400,8 +400,8 @@
       }
 
       .page-break {
-        break-before: auto;
-        page-break-before: auto;
+        break-before: page;
+        page-break-before: page;
       }
 
       @media (max-width: 760px) {
@@ -449,6 +449,20 @@
       }
 
       @media print {
+        /* Chrome은 지정이 없으면 Letter로 인쇄한다. 국내 지원 서류 규격에 맞춰 A4로 고정. */
+        @page {
+          size: A4;
+          margin: 10mm 12mm;
+        }
+
+        /* 제목만 페이지 하단에 홀로 남는 것(고아 제목) 방지 */
+        .resume-content > h2,
+        .resume-content h3,
+        .resume-content h4 {
+          break-after: avoid;
+          page-break-after: avoid;
+        }
+
         html,
         body {
           background: #fff;
