@@ -29,3 +29,6 @@ assets/js/dist
 # Tooling state
 .omc
 _workspace
+
+# Private, job-specific resumes (never pushed — local build/PDF only)
+/resume/
