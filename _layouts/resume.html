@@ -563,11 +563,11 @@
     </style>
   </head>
   <body>
-    <main class="resume-document" aria-label="{{ page.name | default: site.title }} resume">
+    <main class="resume-document" aria-label="{{ page.display_name | default: page.name | default: site.title }} resume">
       <header class="resume-header">
         <div>
           <p class="resume-role">{{ page.role | default: 'Backend Engineer' }}</p>
-          <h1>{{ page.name | default: site.title }}</h1>
+          <h1>{{ page.display_name | default: page.name | default: site.title }}</h1>
           {% if page.headline %}
             <p class="resume-headline">{{ page.headline }}</p>
           {% endif %}
@@ -583,12 +583,20 @@
           {% endif %}
         </div>
         {% if page.photo %}
-          <img class="resume-photo" src="{{ page.photo }}" alt="{{ page.name | default: site.title }} profile photo">
+          <img class="resume-photo" src="{{ page.photo }}" alt="{{ page.display_name | default: page.name | default: site.title }} profile photo">
         {% endif %}
       </header>
       <div class="resume-content">
         {{ content }}
       </div>
     </main>
+    <script>
+      // 참고·GitHub 등 외부 링크는 새 탭으로 열어 이력서/포트폴리오를 벗어나지 않게 함.
+      // href^="http" 로 걸러 mailto:·페이지 내 앵커는 현재 동작을 유지한다.
+      document.querySelectorAll('.resume-document a[href^="http"]').forEach(function (link) {
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+      });
+    </script>
   </body>
 </html>
