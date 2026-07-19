@@ -165,7 +165,7 @@
       .resume-content h3.project-title {
         margin-top: 30px;
         padding-top: 22px;
-        border-top: 1px solid var(--resume-line-soft);
+        border-top: 1px solid var(--resume-line);
       }
 
       .resume-content h2 + h3.project-title {
@@ -339,7 +339,7 @@
       .resume-content p:has(> img) + p em {
         display: block;
         margin-top: 0;
-        color: var(--resume-muted);
+        color: var(--resume-soft);
         font-size: 12px;
         font-weight: 400;
         font-style: italic;
@@ -404,6 +404,12 @@
         page-break-before: page;
       }
 
+      /* 페이지 최상단으로 올라가는 제목(예: Projects)은 위 구분선/여백 제거 */
+      .resume-content > h2.page-break {
+        border-top: 0;
+        padding-top: 0;
+      }
+
       @media (max-width: 760px) {
         html,
         body {
@@ -463,6 +469,17 @@
           page-break-after: avoid;
         }
 
+        /* 프로젝트 제목·설명·이미지를 묶어, 하단에 걸리면 통째로 다음 페이지로 */
+        .resume-content h3.project-title + p {
+          break-after: avoid;
+          page-break-after: avoid;
+        }
+
+        .resume-content p:has(> img) {
+          break-before: avoid;
+          page-break-before: avoid;
+        }
+
         html,
         body {
           background: #fff;
@@ -505,6 +522,7 @@
         .resume-content h3.project-title {
           margin-top: 18px;
           padding-top: 13px;
+          font-size: 16px;
         }
 
         h3 {
